@@ -1,1 +1,136 @@
-<h1>Test</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #fbe9e7, #ffe0b2);
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 2s;
+        }
+        .header h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 60px;
+            margin: 0;
+            color: #d77a61;
+        }
+        .header h2 {
+            font-size: 24px;
+            color: #555;
+            margin: 5px 0 20px;
+        }
+        .heart-divider {
+            position: relative;
+            display: inline-block;
+            margin: 20px 0;
+        }
+        .heart-divider::before, .heart-divider::after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: #d77a61;
+            top: 50%;
+        }
+        .heart-divider::before {
+            left: -60px;
+        }
+        .heart-divider::after {
+            right: -60px;
+        }
+        .heart-divider i {
+            font-size: 24px;
+            color: #d77a61;
+        }
+        .details {
+            font-size: 18px;
+            color: #444;
+            margin: 20px 0;
+        }
+        .details strong {
+            font-weight: 600;
+        }
+        .details p {
+            margin: 10px 0;
+        }
+        .rsvp {
+            margin: 30px 0;
+        }
+        .rsvp a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #d77a61;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 18px;
+            transition: 0.3s ease;
+        }
+        .rsvp a:hover {
+            background-color: #b96552;
+        }
+        .footer {
+            font-size: 14px;
+            color: #777;
+            margin-top: 30px;
+        }
+        audio {
+            display: none;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="container">
+        <div class="header">
+            <h1>You’re Invited</h1>
+            <h2>The Wedding of</h2>
+            <h1>[Bride’s Name] & [Groom’s Name]</h1>
+        </div>
+        <div class="heart-divider">
+            <i>❤️</i>
+        </div>
+        <div class="details">
+            <p>We are delighted to invite you to join us on our special day!</p>
+            <p><strong>Date:</strong> [Wedding Date]</p>
+            <p><strong>Time:</strong> [Wedding Time]</p>
+            <p><strong>Venue:</strong> [Wedding Venue]</p>
+            <p>[Venue Address]</p>
+        </div>
+        <div class="rsvp">
+            <p>Please RSVP by [RSVP Date]</p>
+            <a href="mailto:[Your Email]?subject=RSVP for [Bride’s Name] & [Groom’s Name]">RSVP Now</a>
+        </div>
+        <div class="footer">
+            <p>We can't wait to celebrate with you!</p>
+        </div>
+    </div>
+</body>
+</html>
