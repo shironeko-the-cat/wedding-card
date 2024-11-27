@@ -1,136 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, #fbe9e7, #ffe0b2);
+            background: linear-gradient(to bottom, #fde1dc, #fbc6c4);
+            color: #333;
             overflow-x: hidden;
         }
-        .container {
+
+        section {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 40px auto;
+            padding: 20px;
             text-align: center;
-            padding: 50px 20px;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            animation: fadeIn 2s;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-        .header h1 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 60px;
-            margin: 0;
-            color: #d77a61;
-        }
-        .header h2 {
-            font-size: 24px;
-            color: #555;
-            margin: 5px 0 20px;
-        }
-        .heart-divider {
-            position: relative;
-            display: inline-block;
-            margin: 20px 0;
-        }
-        .heart-divider::before, .heart-divider::after {
-            content: "";
-            position: absolute;
-            width: 50px;
-            height: 2px;
-            background: #d77a61;
-            top: 50%;
-        }
-        .heart-divider::before {
-            left: -60px;
-        }
-        .heart-divider::after {
-            right: -60px;
-        }
-        .heart-divider i {
-            font-size: 24px;
-            color: #d77a61;
-        }
-        .details {
-            font-size: 18px;
-            color: #444;
-            margin: 20px 0;
-        }
-        .details strong {
-            font-weight: 600;
-        }
-        .details p {
+
+        h1,
+        h2,
+        h3 {
             margin: 10px 0;
         }
-        .rsvp {
-            margin: 30px 0;
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 50px;
+            color: #d77a61;
         }
-        .rsvp a {
-            text-decoration: none;
-            color: #fff;
+
+        h2 {
+            font-size: 24px;
+            color: #555;
+        }
+
+        h3 {
+            font-size: 20px;
+            color: #d77a61;
+        }
+
+        p {
+            font-size: 16px;
+            margin: 10px 0;
+            color: #444;
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 20px 10px;
+            padding: 10px 20px;
             background-color: #d77a61;
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-size: 18px;
-            transition: 0.3s ease;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
         }
-        .rsvp a:hover {
-            background-color: #b96552;
+
+        .btn:hover {
+            background-color: #b65b52;
         }
-        .footer {
+
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .qr-code {
+            width: 200px;
+            margin: 20px auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
             font-size: 14px;
             color: #777;
-            margin-top: 30px;
         }
+
         audio {
             display: none;
         }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
     </style>
 </head>
+
 <body>
-    <audio autoplay loop>
-        <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-    <div class="container">
-        <div class="header">
-            <h1>You’re Invited</h1>
-            <h2>The Wedding of</h2>
-            <h1>[Bride’s Name] & [Groom’s Name]</h1>
+    <!-- Include AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+        if (!isChrome) {
+            $('#iframeAudio').remove()
+        }
+        else {
+            $('#playAudio').remove() // just to make sure that it will not have 2x audio in the background 
+        }
+    </script>
+
+    <!-- Background Music -->
+    <iframe src="https://drive.google.com/uc?export=download&id=1dk07RGWG7RSFNSys4Ofrv20wBfXeiBR6" type="audio/mp3"
+        style="display:none" id="iframeAudio">
+    </iframe>
+
+    <!-- Wedding Details -->
+    <section id="wedding" data-aos="fade-up" data-aos-duration="1000">
+        <h1>You’re Invited</h1>
+        <h2>The Wedding of</h2>
+        <h1>[Bride’s Name] & [Groom’s Name]</h1>
+        <p>Date: <strong>[Wedding Date]</strong></p>
+        <p>Venue: <strong>[Wedding Venue]</strong></p>
+    </section>
+
+    <!-- About Bride and Groom -->
+    <section id="about" data-aos="fade-right" data-aos-duration="1000">
+        <h2>About the Couple</h2>
+        <h3>The Bride</h3>
+        <p>[Details about the bride]</p>
+        <h3>The Groom</h3>
+        <p>[Details about the groom]</p>
+    </section>
+
+    <!-- Love Story -->
+    <section id="story" data-aos="fade-left" data-aos-duration="1000">
+        <h2>Our Love Story</h2>
+        <p>We met in [year/location], and since then, every day has been magical.</p>
+        <p>[Add your personalized story here]</p>
+    </section>
+
+    <!-- Wedding Location -->
+    <section id="location" data-aos="zoom-in" data-aos-duration="1000">
+        <h2>Wedding Location</h2>
+        <p>Venue: <strong>[Wedding Venue]</strong></p>
+        <p>Address: <strong>[Wedding Address]</strong></p>
+        <a href="https://maps.google.com?q=[Wedding+Address]" target="_blank" class="btn">View on Google Maps</a>
+    </section>
+
+    <!-- Gift Information -->
+    <section id="gift" data-aos="fade-up" data-aos-duration="1000">
+        <h2>Your Blessing</h2>
+        <p>If you'd like to gift us, here are the details:</p>
+        <p><strong>Bank Name:</strong> [Bank Name]</p>
+        <p><strong>Account Name:</strong> [Account Name]</p>
+        <p><strong>Account Number:</strong> [Account Number]</p>
+        <div class="qr-code">
+            <img src="YOUR_QR_CODE_LINK_HERE.png" alt="Bank QR Code">
         </div>
-        <div class="heart-divider">
-            <i>❤️</i>
-        </div>
-        <div class="details">
-            <p>We are delighted to invite you to join us on our special day!</p>
-            <p><strong>Date:</strong> [Wedding Date]</p>
-            <p><strong>Time:</strong> [Wedding Time]</p>
-            <p><strong>Venue:</strong> [Wedding Venue]</p>
-            <p>[Venue Address]</p>
-        </div>
-        <div class="rsvp">
-            <p>Please RSVP by [RSVP Date]</p>
-            <a href="mailto:[Your Email]?subject=RSVP for [Bride’s Name] & [Groom’s Name]">RSVP Now</a>
-        </div>
-        <div class="footer">
-            <p>We can't wait to celebrate with you!</p>
-        </div>
-    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Thank you for celebrating our special day with us!</p>
+    </footer>
 </body>
+
 </html>
